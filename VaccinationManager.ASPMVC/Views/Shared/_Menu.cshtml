@@ -1,0 +1,69 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    var MenuItems = new[]
+    {
+        new
+        {
+            Name="Home",
+            Controller="Home",
+            Action="Index",
+            Area=""
+
+        },
+        new
+        {
+            Name="Les Centres",
+            Controller="Center",
+            Action="Index",
+            Area=""
+        },
+        new
+        {
+            Name="Les Vaccins",
+            Controller="VaccinType",
+            Action="Index",
+            Area=""
+        },
+        new
+        {
+            Name="Mon Centre",
+            Controller="Center",
+            Action="Index",
+            Area=""
+        }
+
+
+    };
+}
+
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <div class="container">
+        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">VaccinationManager.MVC</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                @foreach (var item in MenuItems)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded"
+                           asp-controller="@item.Controller" asp-action="@item.Action" asp-area="@item.Area">
+                            @item.Name
+                        </a>
+                    </li>
+                }
+
+
+            </ul>
+        </div>
+        <div class="text-end">
+            <a type="button" class="btn btn-primary" asp-controller="User" asp-action="Login">Login</a>
+        </div>
+
+    </div>
+</nav>
+
